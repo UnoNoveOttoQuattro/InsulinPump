@@ -1,1 +1,75 @@
-ciao , adesso pusho
+Struttura della relazione
+La relazione conterrà le seguenti sezioni.
+
+2.1 Descrizione generale
+Una descrizione generale del sistema che si vuole realizzare.
+Questa descrizione dovrebbe anche contenere almeno una figura che illustra
+il sistema ed il suo ambiente operativo.
+1
+
+2.2 User requirements
+Una descrizione dei requisiti utenti.
+Ogni requisito deve essere numerato. Si ponga attenzione al fatto che ogni
+requisito esprima un solo vincolo sul sistema.
+Questa sezione deve contenere i diagrammi Use Case dell’UML per almeno
+due use cases.
+
+2.3 System requirements
+Una descrizione dei requisiti di sistema.
+Ogni requisito deve essere numerato. Si ponga attenzione al fatto che ogni
+requisito esprima un solo vincolo sul sistema.
+Questa sezione conterr`a inoltre:
+Il diagramma dell’architettura del sistema.
+Almeno un Activity Diagram UML per mostrare come le componenti del
+sistema concorrono ad soddisfare i requisiti utenti.
+Almeno uno State Diagram UML per una delle componenti del sistema.
+Almeno un Message Sequence Chart UML per la comunicazione tra le
+componenti del sistema.
+
+2.4 Implementation
+Una descrizione generale dell’implementazione.
+Una descrizione con pseudo-codice per tutte le componenti del sistema.
+Lo schema del (o dei) DB usati.
+Una descrizione delle connessioni con Redis.
+
+2.5 Risultati Sperimentali
+Descrivere i risultati ottenuti dalla simulazione del sistema.
+3 Struttura del software
+Il software di ogni progetto deve contenere i seguenti elementi.
+
+3.1 Test generator
+Il test generator, cio`e un modello dell’ambiente in cui il software opera. Tale
+test generator nel seguito verr`a anche chiamato Environment per evidenziare il
+fatto che esso modello inputs dall’ambiente operativo per il software.
+Assicurarsi che l’environment sia completo, cio' e sia in grado con probabilità
+non nulla di generare qualsiasi sequenza di test.
+2
+
+3.2 System Under Design (SUD)
+Il System Under Design (SUD), cio`e il sistema che si sta progettando.
+Il SUD `e realizzato in C++ e consiste in processi comunicanti con Redis e
+con un DB PostgreSQL per i dati (se necessario) e per i log delle esecuzioni
+(sempre necessari per la realizzazione dei monitors).
+Ciascun processo `e una macchina a stati che legge da streams Redis, esegue
+computazioni e ritorna outputs su streams Redis.
+Si raccomanda di realizzare processi piccoli in modo che siano facilmente
+verificabili e validabili.
+
+3.3 Monitor
+Un monitor per ciascuno dei requisiti di interesse. Si realizzino almeno tre monitors per i requisiti funzionali ed almeno due monitors per i requisiti funzionali.
+I monitor prendono input dal DB con i log e ritornano il proprio output sul
+medesimo DB.
+
+
+
+4.4 Insulin Pump
+Si progetti e verifichi una semplice pompa per l’insulina usando la strategia di
+controllo presentata nel libro di testi od altra di vostra scelta.
+Il progetto deve includere i seguenti componenti.
+1. Un modello (virtual patient) che lega il livello glicemico all’insulina iniettata, all’esercizio fisico ed all’alimentazione. Questo verr`a preso dalla
+letteratura e fornito dal docente.
+2. Un modello per l’alimentazione (quando e quanto il paziente si alimenta).
+3. Un modello per l’esercizio fisico (quando e quanto il paziente compie esercizio fisico).
+4. Un modello per la strategia di controllo della pompa dell’insulina.
+5. Monitors per almeno tre propriet`a funzionali.
+6. Monitors per almeno due propriet`a non-funzionali.
